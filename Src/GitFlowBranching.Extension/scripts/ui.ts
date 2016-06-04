@@ -1,6 +1,6 @@
 ﻿/// <reference path="bootstrapper.ts" />
 
-import Services = require("service")
+import Services = require("scripts/service")
 
 export interface IBranchDialogFields {
 
@@ -19,17 +19,15 @@ export class BranchDialog {
 	}
 
 	public setFormValues(values: IBranchDialogFields): void {
-
-		console.log(values.workItemTitle);
+		
 		var name = values.name;
 		if (values.name === "") {
 			name = this.service.parseTextToValidBranchName(values.workItemTitle);
 		}
-
-		console.log(name);
+		
 		$("#gitBranchName").val(name);
-		$('#artifact-name').text(name);
-		//$("#artifact-name").val("#" + values.workItemId + " " + values.workItemTitle);
+		$('#artifact-name').text(values.workItemTitle);
+		$('#artifact-id').text(values.workItemId);
 	}
 
 }

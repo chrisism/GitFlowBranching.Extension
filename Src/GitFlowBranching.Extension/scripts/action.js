@@ -9,7 +9,8 @@ define(["require", "exports", "TFS/WorkItemTracking/RestClient"], function (requ
             alert('Sorry, nog niet klaar');
             var client = RestClient.getClient();
             var project = VSS.getWebContext().project.name;
-            client.getWorkItem(actionContext.id, ["System.Title"]).then(function (workItem) {
+            var itemId = actionContext.workItemIds[0];
+            client.getWorkItem(itemId, ["System.Title"]).then(function (workItem) {
                 var title = workItem.fields["System.Title"];
                 VSS.getService(VSS.ServiceIds.Dialog).then(function (dialogService) {
                     // contribution info
@@ -30,10 +31,9 @@ define(["require", "exports", "TFS/WorkItemTracking/RestClient"], function (requ
                             var values = {
                                 name: "",
                                 workItemTitle: title,
-                                workItemId: actionContext.id,
+                                workItemId: itemId,
                                 workItemType: actionContext.workItemType
                             };
-                            console.log(dialogInstance);
                             dialogInstance.setFormValues(values);
                             dialog.updateOkButton(true);
                         });

@@ -6,7 +6,7 @@ define(["require", "exports"], function (require, exports) {
         }
         GitFlowBranchService.prototype.parseTextToValidBranchName = function (text) {
             text = text.replace(" ", "_");
-            text = text.replace(" ", "_");
+            text = text.replace(".", "_");
             text = text.replace("\\", "");
             return text;
         };

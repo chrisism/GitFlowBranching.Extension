@@ -1,7 +1,7 @@
 {
 	"manifestVersion": 1,
 	"id": "gitflow-branching",
-	"version": "0.2.3",
+	"version": "0.2.10",
 	"name": "GitFlow Branching",
 	"scopes": [ "vso.work", "vso.work_write", "vso.code", "vso.code_write" ],
 	"description": "This extension will bring GitFlow type of branching to your workitems. Just open the context menu of a work item and select the correct gitflow branch.",

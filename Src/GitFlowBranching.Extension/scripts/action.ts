@@ -14,10 +14,11 @@ export class GitFlowBranchActionHandler {
 
 		var client = RestClient.getClient();
 		var project = VSS.getWebContext().project.name;
+		var itemId = actionContext.workItemIds[0];
 
-		client.getWorkItem(actionContext.id, ["System.Title"]).then((workItem: Contracts.WorkItem) => {
-			var title: string = workItem.fields["System.Title"];
-
+		client.getWorkItem(itemId, ["System.Title"]).then((workItem: Contracts.WorkItem) => {
+			var title:string = workItem.fields["System.Title"];
+			
 			VSS.getService(VSS.ServiceIds.Dialog).then((dialogService: IHostDialogService) => {
 
 				// contribution info
@@ -42,11 +43,10 @@ export class GitFlowBranchActionHandler {
 						var values: UI.IBranchDialogFields = {
 							name: "",
 							workItemTitle: title,
-							workItemId: actionContext.id,
+							workItemId: itemId,
 							workItemType: actionContext.workItemType
 						};
 
-						console.log(dialogInstance);
 						dialogInstance.setFormValues(values);
 						dialog.updateOkButton(true);
 					});
