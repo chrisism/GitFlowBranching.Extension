@@ -1,0 +1,102 @@
+{
+	"manifestVersion": 1,
+	"id": "gitflow-branching",
+	"version": "0.2.3",
+	"name": "GitFlow Branching",
+	"scopes": [ "vso.work", "vso.work_write", "vso.code", "vso.code_write" ],
+	"description": "This extension will bring GitFlow type of branching to your workitems. Just open the context menu of a work item and select the correct gitflow branch.",
+	"publisher": "JungeriusIT",
+	"public": true,
+	"icons": {
+		"default": "img/logo.png"
+	},
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
+	"tags": [
+		"Git",
+		"GitFlow",
+		"Branch",
+		"Branching"
+	],
+	"content": {
+		"details": {
+			"path": "readme.md"
+		}
+	},
+	"links": {
+		"home": {
+			"uri": "https://bit.ly"
+		},
+		"getstarted": {
+			"uri": "https://bit.ly"
+		},
+		"learn": {
+			"uri": "https://bit.ly"
+		},
+		"support": {
+			"uri": "https://bit.ly"
+		},
+		"repository": {
+			"uri": "https://bit.ly"
+		},
+		"issues": {
+			"uri": "https://bit.ly"
+		}
+	},
+	"branding": {
+		"color": "rgb(220, 235, 252)",
+		"theme": "light"
+	},
+	"files": [
+		{
+			"path": "img",
+			"addressable": true
+		},
+		{
+			"path": "scripts",
+			"addressable": true
+		},
+		{
+			"path": "action.html",
+			"addressable": true
+		},
+		{
+			"path": "gitflowDialog.html",
+			"addressable": true
+		},
+		{
+			"path": "readme.md",
+			"addressable": true
+		}
+	],
+	"categories": [
+		"Code"
+	],
+	"contributions": [
+		{
+			"id": "gitflow-branch",
+			"type": "ms.vss-web.action",
+			"description": "Create GitFlow branch",
+			"targets": [
+				"ms.vss-work-web.work-item-context-menu"
+			],
+			"properties": {
+				"text": "New GitFlow branch",
+				"title": "New GitFlow branch",
+				"groupId": "vcInWit",
+				"icon": "img/branchicon.png",
+				"uri": "action.html"
+			}
+		},
+		{
+			"id": "gitFlowBranchDialog",
+			"type": "ms.vss-web.control",
+			"properties": {
+				"uri": "gitflowDialog.html"
+			}
+		}
+	]
+}

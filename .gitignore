@@ -234,3 +234,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/Src/GitFlowBranching.Extension/JungeriusIT.gitflow-branching-0.2.3.vsix

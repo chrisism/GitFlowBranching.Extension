@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Create a GitFlow branch</title>
+</head>
+<body>
+<div class="bowtie-style form-section">
+	<div class="form-item">
+		<label>Branch type</label>
+		<select class="combo">
+			<option value="feature">Feature</option>
+			<option value="feature">HotFix</option>
+			<option value="feature">Release</option>
+		</select>
+	</div>
+	<div class="form-item">
+		<label>Work item</label>
+		<span id="artifact-name"></span>
+	</div>
+	<div class="form-item">
+		<label for="gitBranchName">Name</label>
+		<input type="text" id="gitBranchName" class="textbox" placeholder="Enter your branch name">
+	</div>
+</div>
+	<script src="scripts/VSS.SDK.js"></script>
+	<script type="text/javascript">
+		VSS.init({
+			explicitNotifyLoaded: true,
+			usePlatformScripts: true,
+			usePlatformStyles: true
+		});
+
+		 VSS.ready(function () {
+			require(["scripts/ui"], function (dialog) { });
+		});
+	</script>
+</body>
+</html>
